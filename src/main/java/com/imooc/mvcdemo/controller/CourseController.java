@@ -109,40 +109,4 @@ public class CourseController {
 		Course course = courseService.getCoursebyId(courseId);
 		return new ResponseEntity<Course>(course, HttpStatus.OK);
 	}
-	// http://localhost:8080/courses/baseType.do?age=10
-	@RequestMapping(value="baseType.do")
-	@ResponseBody
-	public String baseType(int age) {
-		return "age = "+age;
-	}
-	// http://localhost:8080/courses/baseType2.do?xage=10
-	@RequestMapping(value="baseType2.do")
-	@ResponseBody
-	public String baseType2(@RequestParam("xage") int age) {
-		return "age = "+age;
-	}
-	// http://localhost:8080/courses/baseType3.do
-	// http://localhost:8080/courses/baseType3.do?age=10
-	@RequestMapping(value="baseType3.do")
-	@ResponseBody
-	public String baseType3(Integer age) {
-		return "age = "+age;
-	}
-	
-	// http://localhost:8080/courses/array.do?name=Ann&name=Tom&name=Jhon
-	@RequestMapping(value="array.do")
-	@ResponseBody
-	public String array(String[] name) {
-		StringBuilder sbf =new StringBuilder();
-		for(String item : name) {
-			sbf.append(item).append(" ");
-		}
-		return sbf.toString();
-	}
-	// http://localhost:8080/courses/object.do?courseId=1000
-	@RequestMapping(value="object.do")
-	@ResponseBody
-	public String object(Course course) {
-		return "CourseID = "+ course.getCourseId();
-	}
 }
